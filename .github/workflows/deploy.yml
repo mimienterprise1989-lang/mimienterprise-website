@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Wasmer CLI
-        uses: wasmerio/setup-wasmer@v1
+        uses: wasmerio/setup-wasmer@v3.1
 
       - name: Deploy to Wasmer Edge
         run: wasmer deploy
