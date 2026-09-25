@@ -1,0 +1,4 @@
+kind: WasmerApp
+name: mimienterprise-website
+owner: mimienterprise1989
+package: .
