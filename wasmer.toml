@@ -1,0 +1,10 @@
+[package]
+name = "mimienterprise1989/mimienterprise-website"
+version = "0.1.0"
+description = "Mimi Enterprise Website"
+
+[dependencies]
+"wasmer/static-web-server" = "^1"
+
+[fs]
+public = "."
