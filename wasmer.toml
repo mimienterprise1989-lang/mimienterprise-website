@@ -1,6 +1,6 @@
 [package]
 name = "mimienterprise1989/mimienterprise-website"
-version = "0.1.2"
+version = "0.1.3"
 description = "Mimi Enterprise Website"
 
 [dependencies]
