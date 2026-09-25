@@ -18,10 +18,9 @@ jobs:
         env:
           WASMER_TOKEN: ${{ secrets.WASMER_TOKEN }}
         run: |
-          # Automatically generate a unique version based on total commit count (e.g., 0.2.4, 0.2.5, etc.)
-          BUILD_NUM=$(git rev-list --count HEAD)
-          NEW_VERSION="0.2.$BUILD_NUM"
-          echo "Generated version: $NEW_VERSION"
+          # Generate a 100% unique version using a timestamp (YearMonthDayHourMinute)
+          NEW_VERSION="0.3.$(date +%Y%m%d%H%M)"
+          echo "Generated unique version: $NEW_VERSION"
           
           # Update version automatically in wasmer.toml
           sed -i "s/^version = .*/version = \"$NEW_VERSION\"/" wasmer.toml
