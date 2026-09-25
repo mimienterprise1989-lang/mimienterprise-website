@@ -2,8 +2,7 @@ name: Publish to Wasmer Edge
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
 
 jobs:
   deploy:
@@ -13,9 +12,19 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Wasmer CLI
-        uses: wasmerio/setup-wasmer@v3.1
+        uses: wasmerio/setup-wasmer@v2
 
-      - name: Deploy to Wasmer Edge
-        run: wasmer deploy
+      - name: Auto-increment version and Deploy
         env:
           WASMER_TOKEN: ${{ secrets.WASMER_TOKEN }}
+        run: |
+          # Automatically generate a unique version based on total commit count (e.g., 0.2.4, 0.2.5, etc.)
+          BUILD_NUM=$(git rev-list --count HEAD)
+          NEW_VERSION="0.2.$BUILD_NUM"
+          echo "Generated version: $NEW_VERSION"
+          
+          # Update version automatically in wasmer.toml
+          sed -i "s/^version = .*/version = \"$NEW_VERSION\"/" wasmer.toml
+          
+          # Deploy to Wasmer Edge
+          wasmer deploy --token ${{ secrets.WASMER_TOKEN }} --non-interactive
