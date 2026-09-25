@@ -7,4 +7,4 @@ meta:
   description: Mimi Enterprise Website
 spec:
   workload:
-    source: mimienterprise1989/mimienterprise-website@0.2.0
+    source: mimienterprise1989/mimienterprise-website@0.2.1
