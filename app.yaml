@@ -1,7 +1,8 @@
 kind: wasmer.io/App.v1
 name: mimienterprise-website
 owner: mimienterprise1989
-package: .
 meta:
   name: mimienterprise-website
   description: Mimi Enterprise Website
+spec:
+  package: .
